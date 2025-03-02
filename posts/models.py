@@ -18,7 +18,7 @@ class Post(models.Model):
 class Like(models.Model):
     users = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     post = models.ForeignKey(Post, related_name='likes_count', on_delete=models.CASCADE, null=True, blank=True)
-    likes = models.PositiveIntegerField(default=0, null=True, blank=True)
+    likes =  models.BooleanField(default=False)
 
     class Meta:
         unique_together = ("users", "post", "likes")

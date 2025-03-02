@@ -4,13 +4,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from posts.models import Post, Comment, Like
 from posts.permissions import IsOwnerOrReadOnly
-from posts.serializers import PostSerializer, CommentSerializer, LikeSerializer, PostsSerializer
+from posts.serializers import PostSerializer, CommentSerializer, LikeSerializer
 
 
-class PostListView(generics.ListAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostsSerializer
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
 
 class PostViwSet(ModelViewSet):
     queryset = Post.objects.all()

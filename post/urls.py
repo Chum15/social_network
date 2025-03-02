@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-from posts.views import PostViwSet, CommentViwSet, LikeViwSet, PostListView
+from posts.views import PostViwSet, CommentViwSet, LikeViwSet
 
 r = DefaultRouter()
 r.register('post', PostViwSet)
@@ -27,5 +27,4 @@ r.register('like', LikeViwSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', PostListView.as_view(), name='post-list'),
 ]+ r.urls
